@@ -26,5 +26,33 @@
     "authorName": "Terry",
     "authorLastName": "Pratchett",
     "cover": "/elColorDeLaMagia.jpeg"
+  },
+  {
+    "id": 5,
+    "title": "Fundación",
+    "authorName": "Isaac",
+    "authorLastName": "Asimov",
+    "cover": "/fundacion.jpeg"
+  },
+  {
+    "id": 6,
+    "title": "La trilogía de Nueva York",
+    "authorName": "Paul",
+    "authorLastName": "Auster",
+    "cover": "/laTrilogiaDeNuevaYork.jpeg"
+  },
+  {
+    "id": 7,
+    "title": "Ubik",
+    "authorName": "Philip",
+    "authorLastName": "K. Dick",
+    "cover": "/ubik.jpeg"
+  },
+  {
+    "id": 8,
+    "title": "Lavinia",
+    "authorName": "Ursula",
+    "authorLastName": "K- Le Guin",
+    "cover": "/lavinia.jpeg"
   }
 ]
