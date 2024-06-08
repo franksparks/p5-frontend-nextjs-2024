@@ -4,55 +4,63 @@
     "title": "Tan poca vida",
     "authorName": "Hanya ",
     "authorLastName": "Yanagihara",
-    "cover": "/tanPocaVida.jpeg"
+    "cover": "/tanPocaVida.jpeg",
+    "status": "READ"
   },
   {
     "id": 2,
     "title": "La casa de hojas",
     "authorName": "Mark ",
     "authorLastName": "Danielewski",
-    "cover": "/laCasaDeHojas.jpeg"
+    "cover": "/laCasaDeHojas.jpeg",
+    "status": "TO READ"
   },
   {
     "id": 3,
     "title": "Don Quijote de la Mancha",
     "authorName": "Miguel",
     "authorLastName": "De Cervantes",
-    "cover": "/donQuijoteDeLaMancha.jpeg"
+    "cover": "/donQuijoteDeLaMancha.jpeg",
+    "status": "TO READ"
   },
   {
     "id": 4,
     "title": "El color de la magia",
     "authorName": "Terry",
     "authorLastName": "Pratchett",
-    "cover": "/elColorDeLaMagia.jpeg"
+    "cover": "/elColorDeLaMagia.jpeg",
+    "status": "READING"
   },
   {
     "id": 5,
     "title": "Fundación",
     "authorName": "Isaac",
     "authorLastName": "Asimov",
-    "cover": "/fundacion.jpeg"
+    "cover": "/fundacion.jpeg",
+    "status": "READING"
   },
   {
     "id": 6,
     "title": "La trilogía de Nueva York",
     "authorName": "Paul",
     "authorLastName": "Auster",
-    "cover": "/laTrilogiaDeNuevaYork.jpeg"
+    "cover": "/laTrilogiaDeNuevaYork.jpeg",
+    "status": "READ"
   },
   {
     "id": 7,
     "title": "Ubik",
     "authorName": "Philip",
     "authorLastName": "K. Dick",
-    "cover": "/ubik.jpeg"
+    "cover": "/ubik.jpeg",
+    "status": "READ"
   },
   {
     "id": 8,
     "title": "Lavinia",
     "authorName": "Ursula",
-    "authorLastName": "K- Le Guin",
-    "cover": "/lavinia.jpeg"
+    "authorLastName": "K. Le Guin",
+    "cover": "/lavinia.jpeg",
+    "status": "READ"
   }
 ]

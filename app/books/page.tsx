@@ -35,6 +35,33 @@ export default function page() {
               <p className="font-bold">
                 {book.authorName} {book.authorLastName}
               </p>
+              {book.status === "READ" && (
+                <Image
+                  src="/icons/read.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              )}
+              {book.status === "READING" && (
+                <Image
+                  src="/icons/reading.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              )}
+              {book.status === "TO READ" && (
+                <Image
+                  src="/icons/toRead.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              )}
             </div>
           </div>
         ))}
