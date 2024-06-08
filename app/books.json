@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Tan poca vida",
+    "authorName": "Hanya ",
+    "authorLastName": "Yanagihara",
+    "cover": "/tanPocaVida.jpeg"
+  },
+  {
+    "id": 2,
+    "title": "La casa de hojas",
+    "authorName": "Mark ",
+    "authorLastName": "Danielewski",
+    "cover": "/laCasaDeHojas.jpeg"
+  },
+  {
+    "id": 3,
+    "title": "Don Quijote de la Mancha",
+    "authorName": "Miguel",
+    "authorLastName": "De Cervantes",
+    "cover": "/donQuijoteDeLaMancha.jpeg"
+  }
+]

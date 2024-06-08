@@ -76,5 +76,9 @@
 }
 
 h1 {
-  @apply font-extrabold text-3xl mb-4;
+  @apply font-extrabold text-2xl mb-4;
+}
+
+h2 {
+  @apply font-bold text-xl mb-4;
 }
