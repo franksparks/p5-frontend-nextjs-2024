@@ -19,5 +19,12 @@
     "authorName": "Miguel",
     "authorLastName": "De Cervantes",
     "cover": "/donQuijoteDeLaMancha.jpeg"
+  },
+  {
+    "id": 4,
+    "title": "El color de la magia",
+    "authorName": "Terry",
+    "authorLastName": "Pratchett",
+    "cover": "/elColorDeLaMagia.jpeg"
   }
 ]
