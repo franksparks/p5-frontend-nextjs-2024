@@ -1,10 +1,5 @@
 "use server";
-import {
-  getBooks,
-  getOneBook,
-  updateBookReview,
-  updateBookStatus,
-} from "@/lib/books";
+import { getBooks, getOneBook, updateBookReview } from "@/lib/books";
 import { revalidatePath } from "next/cache";
 
 export async function actionGetBooks() {
@@ -17,10 +12,6 @@ export async function actionGetOneBook(bookId: number) {
   return book;
 }
 
-export async function actionUpdateStatus(id: number, status: string) {
-  await updateBookStatus(id, status);
-  revalidatePath("/");
-}
 export async function actionUpdateReview(id: number, review: string) {
   await updateBookReview(id, review);
   revalidatePath("/");

@@ -3,7 +3,7 @@ import { Book } from "@/lib/books";
 import Link from "next/link";
 import { actionGetBooks } from "../actions/books";
 
-export default async function page() {
+export default async function Page() {
   let books: Book[] = await actionGetBooks();
   return (
     <main>

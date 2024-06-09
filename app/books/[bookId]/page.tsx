@@ -11,7 +11,7 @@ type PageProps = {
   };
 };
 
-export default async function page({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   const { bookId } = params;
   const bookIdNumber = parseInt(bookId, 10);
 
@@ -33,7 +33,7 @@ export default async function page({ params }: PageProps) {
 
   return (
     <main className="flex flex-row justify-around items-center min-h-96 p-10">
-      <div>
+      <div className="w-1/3">
         <Image
           className="shadow-xl"
           src={book.cover}
@@ -47,7 +47,7 @@ export default async function page({ params }: PageProps) {
           </Link>
         </Button>
       </div>
-      <div className="flex flex-col ">
+      <div className="flex flex-col w-1/4 ">
         <h3>
           <span className="underline">Título:</span>{" "}
           <span className="italic">{book.title}</span>
@@ -107,7 +107,9 @@ export default async function page({ params }: PageProps) {
           </Button>
         </div>
       </div>
-      <BookReview key={book.bookId} book={book} />
+      <div className="w-1/4">
+        <BookReview key={book.bookId} book={book} />
+      </div>
     </main>
   );
 }
