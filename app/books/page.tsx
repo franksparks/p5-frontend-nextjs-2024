@@ -1,12 +1,10 @@
 import BookCard from "@/components/BookCard";
-import { Button } from "@/components/ui/button";
 import { Book } from "@/lib/books";
 import Link from "next/link";
-import booksData from "../books.json";
+import { actionGetBooks } from "../actions/get-books";
 
-export default function page() {
-  let books: Book[] = booksData;
-
+export default async function page() {
+  let books: Book[] = await actionGetBooks();
   return (
     <main>
       <div className="flex flex-wrap p-5 justify-around">
