@@ -17,14 +17,15 @@ export default async function page({ params }: PageProps) {
   const book: Book | undefined = await getOneBook(bookIdNumber);
 
   //Forzamos un error para un libro en concreto
-  if (bookIdNumber === 11) {
+  if (book.title === "Error Humano") {
     throw new Error("Error book selected!");
   }
 
   //Forzamos un "not found" para un libro en concreto
-  if (bookIdNumber === 12) {
+  if (book.title === "Atlantis found") {
     notFound();
   }
+
   if (!book) {
     notFound();
   }
