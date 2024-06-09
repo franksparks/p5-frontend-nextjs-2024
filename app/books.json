@@ -4,6 +4,8 @@
     "title": "Tan poca vida",
     "authorName": "Hanya ",
     "authorLastName": "Yanagihara",
+    "publishYear": 2015,
+    "review": "",
     "cover": "/tanPocaVida.jpeg",
     "status": "READ"
   },
@@ -12,6 +14,8 @@
     "title": "La casa de hojas",
     "authorName": "Mark ",
     "authorLastName": "Danielewski",
+    "publishYear": 2013,
+    "review": "",
     "cover": "/laCasaDeHojas.jpeg",
     "status": "TO READ"
   },
@@ -20,6 +24,8 @@
     "title": "Don Quijote de la Mancha",
     "authorName": "Miguel",
     "authorLastName": "De Cervantes",
+    "publishYear": 1605,
+    "review": "Test",
     "cover": "/donQuijoteDeLaMancha.jpeg",
     "status": "TO READ"
   },
@@ -28,6 +34,8 @@
     "title": "El color de la magia",
     "authorName": "Terry",
     "authorLastName": "Pratchett",
+    "publishYear": 1983,
+    "review": "",
     "cover": "/elColorDeLaMagia.jpeg",
     "status": "READING"
   },
@@ -36,6 +44,8 @@
     "title": "Fundación",
     "authorName": "Isaac",
     "authorLastName": "Asimov",
+    "publishYear": 1951,
+    "review": "",
     "cover": "/fundacion.jpeg",
     "status": "READING"
   },
@@ -44,6 +54,8 @@
     "title": "La trilogía de Nueva York",
     "authorName": "Paul",
     "authorLastName": "Auster",
+    "publishYear": 1987,
+    "review": "",
     "cover": "/laTrilogiaDeNuevaYork.jpeg",
     "status": "READ"
   },
@@ -52,6 +64,8 @@
     "title": "Ubik",
     "authorName": "Philip",
     "authorLastName": "K. Dick",
+    "publishYear": 1969,
+    "review": "",
     "cover": "/ubik.jpeg",
     "status": "READ"
   },
@@ -60,6 +74,8 @@
     "title": "Lavinia",
     "authorName": "Ursula",
     "authorLastName": "K. Le Guin",
+    "publishYear": 2008,
+    "review": "",
     "cover": "/lavinia.jpeg",
     "status": "READ"
   },
@@ -68,6 +84,8 @@
     "title": "Error Humano",
     "authorName": "Chuck",
     "authorLastName": "Palauniuk",
+    "publishYear": 2005,
+    "review": "",
     "cover": "/errorHumano.jpeg",
     "status": "READING"
   }

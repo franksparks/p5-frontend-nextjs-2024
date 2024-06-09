@@ -9,6 +9,8 @@ export type Book = {
   title: string;
   authorName: string;
   authorLastName: string;
+  publishYear: number;
+  review: string;
   cover: string;
   status: string;
 };
