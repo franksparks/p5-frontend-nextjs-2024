@@ -8,17 +8,7 @@ export default function page() {
   let books: Book[] = booksData;
 
   return (
-    <main className="p-4">
-      <div className=" flex flex-row justify-between ">
-        <h1>My books</h1>
-        <Button
-          className="ml-auto bg-blue-600 
-        "
-        >
-          Add a book
-        </Button>
-      </div>
-
+    <main>
       <div className=" flex flex-wrap">
         {books.map((book) => (
           <Link href={`/books/${book.bookId}`} key={book.bookId}>

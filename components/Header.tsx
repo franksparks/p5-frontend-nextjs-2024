@@ -9,12 +9,14 @@ export default function Header() {
           My personal library
         </div>
       </Link>
-
-      <Button>
-        <Link href="/login" className="text-white">
-          Login
-        </Link>
-      </Button>
+      <div className="flex flex-row gap-5">
+        <Button className=" bg-blue-600 ">Add a book</Button>
+        <Button>
+          <Link href="/login" className="text-white">
+            Login
+          </Link>
+        </Button>
+      </div>
     </header>
   );
 }
