@@ -25,11 +25,13 @@ export default function page({ params }: PageProps) {
   if (bookIdNumber === 9) {
     throw new Error("Error book selected!");
   }
+
+  //Forzamos un "not found" para un libro en concreto
   if (bookIdNumber === 10) {
     notFound();
   }
   if (!book) {
-    return redirect("/notFound");
+    notFound();
   }
 
   return (
