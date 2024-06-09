@@ -4,7 +4,7 @@ type LayoutProps = {
 
 export default async function Layout({ children }: LayoutProps) {
   return (
-    <div className="flex flex-row items-stretch">
+    <div>
       <div>{children}</div>
     </div>
   );

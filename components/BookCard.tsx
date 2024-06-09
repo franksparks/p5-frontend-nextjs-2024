@@ -11,7 +11,7 @@ export default function BookCard({ book }: bookCardProps) {
       <Image
         src={book.cover}
         width={100}
-        height={100}
+        height={80}
         alt={`Portada del libro: "${book.cover}"`}
       />
       <div className="m-4 flex flex-col justify-around">
