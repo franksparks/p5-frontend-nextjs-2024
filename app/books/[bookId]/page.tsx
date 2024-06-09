@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Book } from "@/lib/books";
 import Image from "next/image";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 type PageProps = {
   params: {
@@ -24,6 +24,9 @@ export default function page({ params }: PageProps) {
   //Forzamos un error para un libro en concreto
   if (bookIdNumber === 9) {
     throw new Error("Error book selected!");
+  }
+  if (bookIdNumber === 10) {
+    notFound();
   }
   if (!book) {
     return redirect("/notFound");
