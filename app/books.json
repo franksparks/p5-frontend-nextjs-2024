@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "bookId": 1,
     "title": "Tan poca vida",
     "authorName": "Hanya ",
     "authorLastName": "Yanagihara",
@@ -8,7 +8,7 @@
     "status": "READ"
   },
   {
-    "id": 2,
+    "bookId": 2,
     "title": "La casa de hojas",
     "authorName": "Mark ",
     "authorLastName": "Danielewski",
@@ -16,7 +16,7 @@
     "status": "TO READ"
   },
   {
-    "id": 3,
+    "bookId": 3,
     "title": "Don Quijote de la Mancha",
     "authorName": "Miguel",
     "authorLastName": "De Cervantes",
@@ -24,7 +24,7 @@
     "status": "TO READ"
   },
   {
-    "id": 4,
+    "bookId": 4,
     "title": "El color de la magia",
     "authorName": "Terry",
     "authorLastName": "Pratchett",
@@ -32,7 +32,7 @@
     "status": "READING"
   },
   {
-    "id": 5,
+    "bookId": 5,
     "title": "Fundación",
     "authorName": "Isaac",
     "authorLastName": "Asimov",
@@ -40,7 +40,7 @@
     "status": "READING"
   },
   {
-    "id": 6,
+    "bookId": 6,
     "title": "La trilogía de Nueva York",
     "authorName": "Paul",
     "authorLastName": "Auster",
@@ -48,7 +48,7 @@
     "status": "READ"
   },
   {
-    "id": 7,
+    "bookId": 7,
     "title": "Ubik",
     "authorName": "Philip",
     "authorLastName": "K. Dick",
@@ -56,7 +56,7 @@
     "status": "READ"
   },
   {
-    "id": 8,
+    "bookId": 8,
     "title": "Lavinia",
     "authorName": "Ursula",
     "authorLastName": "K. Le Guin",

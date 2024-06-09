@@ -7,7 +7,7 @@ type bookInfoProps = {
 
 export default function BookInfo({ book }: bookInfoProps) {
   return (
-    <div className="flex flex-row m-4 w-64 hover:outline ">
+    <div className="flex flex-row m-4 w-64 hover:outline hover:scale-110 shadow-xl">
       <Image
         src={book.cover}
         width={100}

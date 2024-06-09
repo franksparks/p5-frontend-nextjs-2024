@@ -5,7 +5,7 @@ enum status {
 }
 
 export type Book = {
-  id: number;
+  bookId: number;
   title: string;
   authorName: string;
   authorLastName: string;

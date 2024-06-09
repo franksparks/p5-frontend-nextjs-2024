@@ -1,7 +1,7 @@
 import BookInfo from "@/components/BookInfo";
 import { Button } from "@/components/ui/button";
 import { Book } from "@/lib/books";
-import Image from "next/image";
+import Link from "next/link";
 import booksData from "../books.json";
 
 export default function page() {
@@ -21,7 +21,9 @@ export default function page() {
 
       <div className=" flex flex-wrap">
         {books.map((book) => (
-          <BookInfo key={book.id} book={book} />
+          <Link href={`/books/${book.bookId}`} key={book.bookId}>
+            <BookInfo key={book.bookId} book={book} />
+          </Link>
         ))}
       </div>
     </main>
