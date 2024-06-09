@@ -1,7 +1,7 @@
 import BookCard from "@/components/BookCard";
 import { Book } from "@/lib/books";
 import Link from "next/link";
-import { actionGetBooks } from "../actions/get-books";
+import { actionGetBooks } from "../actions/books";
 
 export default async function page() {
   let books: Book[] = await actionGetBooks();

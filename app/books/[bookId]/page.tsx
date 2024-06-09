@@ -1,3 +1,4 @@
+import BookReview from "@/components/BookReview";
 import { Button } from "@/components/ui/button";
 import { Book, getOneBook } from "@/lib/books";
 import Image from "next/image";
@@ -106,26 +107,7 @@ export default async function page({ params }: PageProps) {
           </Button>
         </div>
       </div>
-      <div className="">
-        {book.review === "" && (
-          <div>
-            <p>Pendiente de valoración</p>{" "}
-            <div className="flex flex-col pt-5">
-              <Button>
-                <Link href="" className="text-white ">
-                  Añadir valoración
-                </Link>
-              </Button>
-            </div>
-          </div>
-        )}
-        {book.review !== "" && (
-          <div>
-            <h3 className="underline">Mi valoración: </h3>
-            <p className="italic">{book.review}</p>
-          </div>
-        )}
-      </div>
+      <BookReview key={book.bookId} book={book} />
     </main>
   );
 }

@@ -22,3 +22,10 @@ export async function getOneBook(bookId: number) {
     where: { bookId },
   });
 }
+
+export async function updateBookReview(bookId: number, review: string) {
+  return await prisma.book.update({
+    where: { bookId },
+    data: { review },
+  });
+}
