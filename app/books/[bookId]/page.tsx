@@ -61,9 +61,42 @@ export default function page({ params }: PageProps) {
           </h3>
           <h3>
             <span className="underline">Estado:</span>{" "}
-            {book.status === "TO READ" && <span>Pendiente</span>}
-            {book.status === "READING" && <span>Leyendo</span>}
-            {book.status === "READ" && <span>Leído</span>}
+            {book.status === "TO READ" && (
+              <div className="flex flex-row">
+                <span className="mr-5">Pendiente</span>{" "}
+                <Image
+                  src="/icons/toRead.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              </div>
+            )}
+            {book.status === "READING" && (
+              <div className="flex flex-row">
+                <span className="mr-5">Leyendo</span>{" "}
+                <Image
+                  src="/icons/reading.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              </div>
+            )}
+            {book.status === "READ" && (
+              <div className="flex flex-row">
+                <span className="mr-5">Leído</span>
+                <Image
+                  src="/icons/read.svg"
+                  width={10}
+                  height={10}
+                  alt="Read Icon"
+                  className="w-6 h-6"
+                />
+              </div>
+            )}
           </h3>
           <div className="flex flex-col gap-5">
             <Button className="w-40 flex flex-row ">
@@ -76,8 +109,8 @@ export default function page({ params }: PageProps) {
         <div className="ml-20 mt-20">
           {book.review === "" && (
             <div>
-              <span>Pendiente de valoración</span>{" "}
-              <div className="flex flex-col gap-5">
+              <p>Pendiente de valoración</p>{" "}
+              <div className="flex flex-col pt-5">
                 <Button>
                   <Link href="" className="text-white ">
                     Añadir valoración
