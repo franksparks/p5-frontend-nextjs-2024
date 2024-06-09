@@ -22,12 +22,12 @@ export default function page({ params }: PageProps) {
   console.log(book);
 
   //Forzamos un error para un libro en concreto
-  if (bookIdNumber === 9) {
+  if (bookIdNumber === 11) {
     throw new Error("Error book selected!");
   }
 
   //Forzamos un "not found" para un libro en concreto
-  if (bookIdNumber === 10) {
+  if (bookIdNumber === 12) {
     notFound();
   }
   if (!book) {

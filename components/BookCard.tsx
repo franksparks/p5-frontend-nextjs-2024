@@ -7,12 +7,13 @@ type bookCardProps = {
 
 export default function BookCard({ book }: bookCardProps) {
   return (
-    <div className="flex flex-row m-4 w-64 hover:outline hover:scale-110 shadow-xl">
+    <div className="flex flex-row m-2 w-64 hover:outline hover:scale-110 shadow-xl">
       <Image
         src={book.cover}
-        width={100}
+        width={85}
         height={80}
         alt={`Portada del libro: "${book.cover}"`}
+        className="w-24 h-40 "
       />
       <div className="m-4 flex flex-col justify-around">
         <p className="italic">{book.title}</p>

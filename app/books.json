@@ -81,6 +81,26 @@
   },
   {
     "bookId": 9,
+    "title": "El hobbit",
+    "authorName": "John Ronald Reuel",
+    "authorLastName": "Tolkien",
+    "publishYear": 1937,
+    "review": "",
+    "cover": "/hobbit.jpeg",
+    "status": "READ"
+  },
+  {
+    "bookId": 10,
+    "title": "La Guerra de las salamandras",
+    "authorName": "Karel",
+    "authorLastName": "Capek",
+    "publishYear": 1936,
+    "review": "",
+    "cover": "/laGuerraDeLasSalamandras.jpeg",
+    "status": "READ"
+  },
+  {
+    "bookId": 11,
     "title": "Error Humano",
     "authorName": "Chuck",
     "authorLastName": "Palauniuk",
@@ -90,7 +110,7 @@
     "status": "READING"
   },
   {
-    "bookId": 10,
+    "bookId": 12,
     "title": "Atlantis found",
     "authorName": "Clive",
     "authorLastName": "Cussler",

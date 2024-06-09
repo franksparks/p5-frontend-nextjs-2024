@@ -9,7 +9,7 @@ export default function page() {
 
   return (
     <main>
-      <div className=" flex flex-wrap p-5">
+      <div className="flex flex-wrap p-5 justify-around">
         {books.map((book) => (
           <Link href={`/books/${book.bookId}`} key={book.bookId}>
             <BookCard key={book.bookId} book={book} />
