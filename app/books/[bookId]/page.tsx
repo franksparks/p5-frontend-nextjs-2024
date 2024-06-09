@@ -15,11 +15,17 @@ export default function page({ params }: PageProps) {
   const book: Book | undefined = booksData.find(
     (b) => b.bookId === bookIdNumber
   );
+
   console.log(book);
 
+  //Forzamos un error
+  if (bookIdNumber === 9) {
+    throw new Error("Please try again");
+  }
   if (!book) {
     return redirect("/notFound");
   }
+
   return (
     <main className="p-4">
       <div>{book.title}</div>

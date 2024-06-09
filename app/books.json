@@ -62,5 +62,13 @@
     "authorLastName": "K. Le Guin",
     "cover": "/lavinia.jpeg",
     "status": "READ"
+  },
+  {
+    "bookId": 9,
+    "title": "Error Humano",
+    "authorName": "Chuck",
+    "authorLastName": "Palauniuk",
+    "cover": "/errorHumano.jpeg",
+    "status": "READING"
   }
 ]

@@ -1,11 +1,11 @@
 import { Book } from "@/lib/books";
 import Image from "next/image";
 
-type bookInfoProps = {
+type bookCardProps = {
   book: Book;
 };
 
-export default function BookInfo({ book }: bookInfoProps) {
+export default function BookCard({ book }: bookCardProps) {
   return (
     <div className="flex flex-row m-4 w-64 hover:outline hover:scale-110 shadow-xl">
       <Image

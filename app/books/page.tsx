@@ -1,4 +1,4 @@
-import BookInfo from "@/components/BookInfo";
+import BookCard from "@/components/BookCard";
 import { Button } from "@/components/ui/button";
 import { Book } from "@/lib/books";
 import Link from "next/link";
@@ -22,7 +22,7 @@ export default function page() {
       <div className=" flex flex-wrap">
         {books.map((book) => (
           <Link href={`/books/${book.bookId}`} key={book.bookId}>
-            <BookInfo key={book.bookId} book={book} />
+            <BookCard key={book.bookId} book={book} />
           </Link>
         ))}
       </div>
