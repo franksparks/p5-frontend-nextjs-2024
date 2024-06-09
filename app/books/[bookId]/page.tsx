@@ -1,9 +1,8 @@
-import booksData from "@/app/books.json";
 import { Button } from "@/components/ui/button";
-import { Book } from "@/lib/books";
+import { Book, getOneBook } from "@/lib/books";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 type PageProps = {
   params: {
@@ -11,15 +10,11 @@ type PageProps = {
   };
 };
 
-export default function page({ params }: PageProps) {
+export default async function page({ params }: PageProps) {
   const { bookId } = params;
   const bookIdNumber = parseInt(bookId, 10);
 
-  const book: Book | undefined = booksData.find(
-    (b) => b.bookId === bookIdNumber
-  );
-
-  console.log(book);
+  const book: Book | undefined = await getOneBook(bookIdNumber);
 
   //Forzamos un error para un libro en concreto
   if (bookIdNumber === 11) {
@@ -65,7 +60,7 @@ export default function page({ params }: PageProps) {
         </h3>
         <h3>
           <span className="underline">Estado:</span>{" "}
-          {book.status === "TO READ" && (
+          {book.status === "PENDING" && (
             <div className="flex flex-row">
               <span className="mr-5">Pendiente</span>{" "}
               <Image

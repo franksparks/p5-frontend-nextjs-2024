@@ -38,7 +38,7 @@ export default function BookCard({ book }: bookCardProps) {
             className="w-6 h-6"
           />
         )}
-        {book.status === "TO READ" && (
+        {book.status === "PENDING" && (
           <Image
             src="/icons/toRead.svg"
             width={10}
