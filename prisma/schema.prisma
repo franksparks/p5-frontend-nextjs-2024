@@ -18,6 +18,8 @@ model Book {
   title          String
   authorName     String
   authorLastName String
+  pages          Int
+  publisher      String
   publishYear    Int
   review         String
   cover          String
