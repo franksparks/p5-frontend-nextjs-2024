@@ -15,6 +15,7 @@
 Se ha desarrollado una aplicación que permite la gestión de una biblioteca personal.
 
 Los libros pueden tener uno de los siguientes estados:
+
 - Pendiente
 - Leyendo
 - Leído
@@ -22,21 +23,30 @@ Los libros pueden tener uno de los siguientes estados:
 ### Instrucciones
 
 Una vez arrancada la aplicación, veremos una serie de libros en la página principal, son los libros en nuestra biblioteca personal:
+
 - Usuarios sin registrar pueden ver la colección y también el detalle de los libros.
 - Para añadir libros, editar su estado o su valoración, necesitaremos iniciar sesión.
-  
+
 #### Casos especiales
 
 - El libro "Error humano" lanza un error.
 - El libro "Atlantis found" redirige a la página de NotFound.
 
-##### Pendiente a fecha del 9/6:
-- Añadir UI y actions para cambiar el estado de lectura.
+---
+
+### Pendiente a fecha del 13/6:
+
+- Terminar el formulario para introducir libros.
+
+  - Mejorar el formulario para poder añadir la imagen de portada.
+
 - Implementar login + redirecciones.
-  -  Implementar controles para permitir acciones solo al usuario que ha hecho login.
-- Mejorar estilos componente valoración.
-- Mostrar el skeleton al cargar la aplicación.
+
+  - Implementar controles para permitir aplicar cambios o introducir nuevos libros solo al usuario autenticado.
+
 - Añadir filtros por estado en la página principal.
+
+---
 
 # Enunciado original
 
