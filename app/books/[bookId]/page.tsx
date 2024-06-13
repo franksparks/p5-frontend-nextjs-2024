@@ -1,4 +1,4 @@
-import BookReview from "@/components/BookReview";
+import BookEditableData from "@/components/BookEditableData";
 import { Button } from "@/components/ui/button";
 import { Book, getOneBook } from "@/lib/books";
 import Image from "next/image";
@@ -32,8 +32,8 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="flex flex-row justify-around items-center min-h-96 p-10">
-      <div className="w-1/3">
+    <main className="flex flex-row items-center min-h-96 p-10">
+      <div className="w-1/3 flex flex-col items-center">
         <Image
           className="shadow-xl"
           src={book.cover}
@@ -47,68 +47,34 @@ export default async function Page({ params }: PageProps) {
           </Link>
         </Button>
       </div>
-      <div className="flex flex-col w-1/4 ">
+
+      <div className="flex flex-col w-1/4  items-start">
         <h3>
-          <span className="underline">Título:</span>{" "}
-          <span className="italic">{book.title}</span>
+          <p className="underline">Título:</p>{" "}
+          <p className="italic">{book.title}</p>
         </h3>
         <h3>
-          <span className="underline">Autor/a:</span> {book.authorLastName}
-          , {book.authorName}
+          <p className="underline">Autor/a:</p>
+          <p>
+            {book.authorLastName}, {book.authorName}
+          </p>
         </h3>
         <h3>
-          <span className="underline">Año de publicación:</span>{" "}
-          {book.publishYear}
+          <p className="underline">Editorial:</p>
+          <p>{book.publisher}</p>
         </h3>
         <h3>
-          <span className="underline">Estado:</span>{" "}
-          {book.status === "PENDING" && (
-            <div className="flex flex-row">
-              <span className="mr-5">Pendiente</span>{" "}
-              <Image
-                src="/icons/toRead.svg"
-                width={10}
-                height={10}
-                alt="Read Icon"
-                className="w-6 h-6"
-              />
-            </div>
-          )}
-          {book.status === "READING" && (
-            <div className="flex flex-row">
-              <span className="mr-5">Leyendo</span>{" "}
-              <Image
-                src="/icons/reading.svg"
-                width={10}
-                height={10}
-                alt="Read Icon"
-                className="w-6 h-6"
-              />
-            </div>
-          )}
-          {book.status === "READ" && (
-            <div className="flex flex-row">
-              <span className="mr-5">Leído</span>
-              <Image
-                src="/icons/read.svg"
-                width={10}
-                height={10}
-                alt="Read Icon"
-                className="w-6 h-6"
-              />
-            </div>
-          )}
+          <p className="underline">Año de publicación:</p>
+          <p>{book.publishYear}</p>
         </h3>
-        <div className="flex flex-col gap-5">
-          <Button className="w-40 flex flex-row ">
-            <Link href="" className="text-white">
-              Cambiar estado
-            </Link>
-          </Button>
-        </div>
+        <h3>
+          <p className="underline">Número de páginas:</p>
+          <p>{book.pages}</p>
+        </h3>
       </div>
-      <div className="w-1/4">
-        <BookReview key={book.bookId} book={book} />
+
+      <div className="w-1/3 flex flex-col items-start">
+        <BookEditableData key={book.bookId} book={book} />
       </div>
     </main>
   );

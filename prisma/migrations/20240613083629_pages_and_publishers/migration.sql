@@ -1,0 +1,2 @@
+-- AlterSequence
+ALTER SEQUENCE "Book_bookId_seq" MAXVALUE 9223372036854775807;

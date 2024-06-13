@@ -40,7 +40,7 @@ export default function BookCard({ book }: bookCardProps) {
         )}
         {book.status === "PENDING" && (
           <Image
-            src="/icons/toRead.svg"
+            src="/icons/pending.svg"
             width={10}
             height={10}
             alt="Read Icon"
