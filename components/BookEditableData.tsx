@@ -5,7 +5,7 @@ import {
 } from "@/app/actions/books";
 import { Book } from "@/lib/books";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 
@@ -16,6 +16,7 @@ type bookCardProps = {
 export default function BookEditableData({ book }: bookCardProps) {
   const [review, setReview] = useState(book.review);
   const [status, setStatus] = useState(book.status);
+  const [message, setMessage] = useState("");
 
   //Si el libro está leído y no tiene reseña, podemos editar el textarea directamente.
   const [editionMode, setEditionMode] = useState(book.review == "");
@@ -26,6 +27,7 @@ export default function BookEditableData({ book }: bookCardProps) {
 
   const handleSaveReview = () => {
     actionUpdateReview(book.bookId, review);
+    setMessage("Se ha actualizado la reseña del libro.");
     setEditionMode(false);
   };
 
@@ -38,6 +40,8 @@ export default function BookEditableData({ book }: bookCardProps) {
 
   const handleStatusEdit = () => {
     actionUpdateStatus(book.bookId, status);
+
+    setMessage("Se ha actualizado el estado de lectura.");
   };
 
   const cancelEdition = () => {
@@ -46,10 +50,18 @@ export default function BookEditableData({ book }: bookCardProps) {
     setReview(book.review);
   };
 
+  //Función para ocultar el mensaje informativo.
+  useEffect(() => {
+    if (message) {
+      const timeout = setTimeout(() => setMessage(""), 2000);
+      return () => clearTimeout(timeout);
+    }
+  }, [message]);
+
   return (
     <main className="flex flex-col">
-      <h3 className="min-h-36">
-        <span className="underline">Estado de lectura:</span>
+      <div className="min-h-36">
+        <h3 className="underline">Estado de lectura:</h3>
         <div>
           <div className="flex flex-row mt-3">
             <div className="pt-3 mx-2">
@@ -117,7 +129,7 @@ export default function BookEditableData({ book }: bookCardProps) {
             )}
           </div>
         </div>
-      </h3>
+      </div>
 
       <div className="min-h-48">
         <h3 className="underline">Reseña: </h3>
@@ -201,6 +213,10 @@ export default function BookEditableData({ book }: bookCardProps) {
             )}
           </div>
         )}
+      </div>
+
+      <div className="min-h-8">
+        <p className="italic">{message}</p>
       </div>
     </main>
   );
