@@ -10,7 +10,11 @@ export default function Header() {
         </div>
       </Link>
       <div className="flex flex-row gap-5">
-        <Button className=" bg-blue-600 ">Add a book</Button>
+        <Button className=" bg-blue-600 ">
+          <Link href="/new" className="text-white">
+            Add a book
+          </Link>
+        </Button>
         <Button>
           <Link href="/login" className="text-white">
             Login
