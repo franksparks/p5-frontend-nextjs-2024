@@ -13,7 +13,7 @@ async function main() {
       publisher: "Lumen",
       publishYear: 2015,
       review: "",
-      cover: "/tanPocaVida.jpeg",
+      cover: "/covers/tanPocaVida.jpeg",
       status: "READ",
     },
   });
@@ -26,7 +26,7 @@ async function main() {
       publisher: "Pálido fuego",
       publishYear: 2013,
       review: "",
-      cover: "/laCasaDeHojas.jpeg",
+      cover: "/covers/laCasaDeHojas.jpeg",
       status: "PENDING",
     },
   });
@@ -39,7 +39,7 @@ async function main() {
       publisher: "Austral",
       publishYear: 1605,
       review: "Test",
-      cover: "/donQuijoteDeLaMancha.jpeg",
+      cover: "/covers/donQuijoteDeLaMancha.jpeg",
       status: "PENDING",
     },
   });
@@ -52,7 +52,7 @@ async function main() {
       publisher: "De Bolsillo",
       publishYear: 1983,
       review: "",
-      cover: "/elColorDeLaMagia.jpeg",
+      cover: "/covers/elColorDeLaMagia.jpeg",
       status: "READING",
     },
   });
@@ -65,7 +65,7 @@ async function main() {
       publisher: "De Bolsillo",
       publishYear: 1951,
       review: "",
-      cover: "/fundacion.jpeg",
+      cover: "/covers/fundacion.jpeg",
       status: "READING",
     },
   });
@@ -78,7 +78,7 @@ async function main() {
       publisher: "Anagrama",
       publishYear: 1987,
       review: "",
-      cover: "/laTrilogiaDeNuevaYork.jpeg",
+      cover: "/covers/laTrilogiaDeNuevaYork.jpeg",
       status: "READ",
     },
   });
@@ -91,7 +91,7 @@ async function main() {
       publisher: "Minotauro",
       publishYear: 1969,
       review: "",
-      cover: "/ubik.jpeg",
+      cover: "/covers/ubik.jpeg",
       status: "READ",
     },
   });
@@ -104,7 +104,7 @@ async function main() {
       publisher: "Minotauro",
       publishYear: 2008,
       review: "",
-      cover: "/lavinia.jpeg",
+      cover: "/covers/lavinia.jpeg",
       status: "READ",
     },
   });
@@ -117,7 +117,7 @@ async function main() {
       publisher: "Booket",
       publishYear: 1937,
       review: "",
-      cover: "/hobbit.jpeg",
+      cover: "/covers/hobbit.jpeg",
       status: "READ",
     },
   });
@@ -130,7 +130,7 @@ async function main() {
       publisher: "Libros del Zorro Rojo",
       publishYear: 1936,
       review: "",
-      cover: "/laGuerraDeLasSalamandras.jpeg",
+      cover: "/covers/laGuerraDeLasSalamandras.jpeg",
       status: "READ",
     },
   });
@@ -143,7 +143,7 @@ async function main() {
       publisher: "De Bolsillo",
       publishYear: 2005,
       review: "",
-      cover: "/errorHumano.jpeg",
+      cover: "/covers/errorHumano.jpeg",
       status: "READING",
     },
   });
@@ -156,7 +156,7 @@ async function main() {
       publisher: "Berkley Books",
       publishYear: 2000,
       review: "",
-      cover: "/atlantisFound.jpeg",
+      cover: "/covers/atlantisFound.jpeg",
       status: "PENDING",
     },
   });
