@@ -18,6 +18,8 @@ export const SortOrderSchema = z.enum(['asc','desc']);
 
 export const QueryModeSchema = z.enum(['default','insensitive']);
 
+export const NullsOrderSchema = z.enum(['first','last']);
+
 export const StatusSchema = z.enum(['READ','PENDING','READING']);
 
 export type StatusType = `${z.infer<typeof StatusSchema>}`
@@ -31,7 +33,7 @@ export type StatusType = `${z.infer<typeof StatusSchema>}`
 /////////////////////////////////////////
 
 export const BooksSchema = z.object({
-  status: StatusSchema,
+  status: StatusSchema.nullable(),
   bookId: z.number().int(),
   title: z.string(),
   authorName: z.string(),
@@ -39,8 +41,8 @@ export const BooksSchema = z.object({
   pages: z.number().int(),
   publisher: z.string(),
   publishYear: z.number().int(),
-  review: z.string(),
-  cover: z.string(),
+  review: z.string().nullable(),
+  cover: z.string().nullable(),
 })
 
 export type Books = z.infer<typeof BooksSchema>
@@ -81,9 +83,9 @@ export const BooksWhereInputSchema: z.ZodType<Prisma.BooksWhereInput> = z.object
   pages: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
   publisher: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   publishYear: z.union([ z.lazy(() => IntFilterSchema),z.number() ]).optional(),
-  review: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
-  cover: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
-  status: z.union([ z.lazy(() => EnumStatusFilterSchema),z.lazy(() => StatusSchema) ]).optional(),
+  review: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  cover: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  status: z.union([ z.lazy(() => EnumStatusNullableFilterSchema),z.lazy(() => StatusSchema) ]).optional().nullable(),
 }).strict();
 
 export const BooksOrderByWithRelationInputSchema: z.ZodType<Prisma.BooksOrderByWithRelationInput> = z.object({
@@ -94,9 +96,9 @@ export const BooksOrderByWithRelationInputSchema: z.ZodType<Prisma.BooksOrderByW
   pages: z.lazy(() => SortOrderSchema).optional(),
   publisher: z.lazy(() => SortOrderSchema).optional(),
   publishYear: z.lazy(() => SortOrderSchema).optional(),
-  review: z.lazy(() => SortOrderSchema).optional(),
-  cover: z.lazy(() => SortOrderSchema).optional(),
-  status: z.lazy(() => SortOrderSchema).optional()
+  review: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  cover: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  status: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
 }).strict();
 
 export const BooksWhereUniqueInputSchema: z.ZodType<Prisma.BooksWhereUniqueInput> = z.object({
@@ -113,9 +115,9 @@ export const BooksWhereUniqueInputSchema: z.ZodType<Prisma.BooksWhereUniqueInput
   pages: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
   publisher: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
   publishYear: z.union([ z.lazy(() => IntFilterSchema),z.number().int() ]).optional(),
-  review: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
-  cover: z.union([ z.lazy(() => StringFilterSchema),z.string() ]).optional(),
-  status: z.union([ z.lazy(() => EnumStatusFilterSchema),z.lazy(() => StatusSchema) ]).optional(),
+  review: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  cover: z.union([ z.lazy(() => StringNullableFilterSchema),z.string() ]).optional().nullable(),
+  status: z.union([ z.lazy(() => EnumStatusNullableFilterSchema),z.lazy(() => StatusSchema) ]).optional().nullable(),
 }).strict());
 
 export const BooksOrderByWithAggregationInputSchema: z.ZodType<Prisma.BooksOrderByWithAggregationInput> = z.object({
@@ -126,9 +128,9 @@ export const BooksOrderByWithAggregationInputSchema: z.ZodType<Prisma.BooksOrder
   pages: z.lazy(() => SortOrderSchema).optional(),
   publisher: z.lazy(() => SortOrderSchema).optional(),
   publishYear: z.lazy(() => SortOrderSchema).optional(),
-  review: z.lazy(() => SortOrderSchema).optional(),
-  cover: z.lazy(() => SortOrderSchema).optional(),
-  status: z.lazy(() => SortOrderSchema).optional(),
+  review: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  cover: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
+  status: z.union([ z.lazy(() => SortOrderSchema),z.lazy(() => SortOrderInputSchema) ]).optional(),
   _count: z.lazy(() => BooksCountOrderByAggregateInputSchema).optional(),
   _avg: z.lazy(() => BooksAvgOrderByAggregateInputSchema).optional(),
   _max: z.lazy(() => BooksMaxOrderByAggregateInputSchema).optional(),
@@ -147,9 +149,9 @@ export const BooksScalarWhereWithAggregatesInputSchema: z.ZodType<Prisma.BooksSc
   pages: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
   publisher: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
   publishYear: z.union([ z.lazy(() => IntWithAggregatesFilterSchema),z.number() ]).optional(),
-  review: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
-  cover: z.union([ z.lazy(() => StringWithAggregatesFilterSchema),z.string() ]).optional(),
-  status: z.union([ z.lazy(() => EnumStatusWithAggregatesFilterSchema),z.lazy(() => StatusSchema) ]).optional(),
+  review: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  cover: z.union([ z.lazy(() => StringNullableWithAggregatesFilterSchema),z.string() ]).optional().nullable(),
+  status: z.union([ z.lazy(() => EnumStatusNullableWithAggregatesFilterSchema),z.lazy(() => StatusSchema) ]).optional().nullable(),
 }).strict();
 
 export const BooksCreateInputSchema: z.ZodType<Prisma.BooksCreateInput> = z.object({
@@ -159,9 +161,9 @@ export const BooksCreateInputSchema: z.ZodType<Prisma.BooksCreateInput> = z.obje
   pages: z.number().int(),
   publisher: z.string(),
   publishYear: z.number().int(),
-  review: z.string(),
-  cover: z.string(),
-  status: z.lazy(() => StatusSchema)
+  review: z.string().optional().nullable(),
+  cover: z.string().optional().nullable(),
+  status: z.lazy(() => StatusSchema).optional().nullable()
 }).strict();
 
 export const BooksUncheckedCreateInputSchema: z.ZodType<Prisma.BooksUncheckedCreateInput> = z.object({
@@ -172,9 +174,9 @@ export const BooksUncheckedCreateInputSchema: z.ZodType<Prisma.BooksUncheckedCre
   pages: z.number().int(),
   publisher: z.string(),
   publishYear: z.number().int(),
-  review: z.string(),
-  cover: z.string(),
-  status: z.lazy(() => StatusSchema)
+  review: z.string().optional().nullable(),
+  cover: z.string().optional().nullable(),
+  status: z.lazy(() => StatusSchema).optional().nullable()
 }).strict();
 
 export const BooksUpdateInputSchema: z.ZodType<Prisma.BooksUpdateInput> = z.object({
@@ -184,9 +186,9 @@ export const BooksUpdateInputSchema: z.ZodType<Prisma.BooksUpdateInput> = z.obje
   pages: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   publisher: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   publishYear: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
-  review: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  cover: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => EnumStatusFieldUpdateOperationsInputSchema) ]).optional(),
+  review: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  cover: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NullableEnumStatusFieldUpdateOperationsInputSchema) ]).optional().nullable(),
 }).strict();
 
 export const BooksUncheckedUpdateInputSchema: z.ZodType<Prisma.BooksUncheckedUpdateInput> = z.object({
@@ -197,9 +199,9 @@ export const BooksUncheckedUpdateInputSchema: z.ZodType<Prisma.BooksUncheckedUpd
   pages: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   publisher: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   publishYear: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
-  review: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  cover: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => EnumStatusFieldUpdateOperationsInputSchema) ]).optional(),
+  review: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  cover: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NullableEnumStatusFieldUpdateOperationsInputSchema) ]).optional().nullable(),
 }).strict();
 
 export const BooksCreateManyInputSchema: z.ZodType<Prisma.BooksCreateManyInput> = z.object({
@@ -210,9 +212,9 @@ export const BooksCreateManyInputSchema: z.ZodType<Prisma.BooksCreateManyInput> 
   pages: z.number().int(),
   publisher: z.string(),
   publishYear: z.number().int(),
-  review: z.string(),
-  cover: z.string(),
-  status: z.lazy(() => StatusSchema)
+  review: z.string().optional().nullable(),
+  cover: z.string().optional().nullable(),
+  status: z.lazy(() => StatusSchema).optional().nullable()
 }).strict();
 
 export const BooksUpdateManyMutationInputSchema: z.ZodType<Prisma.BooksUpdateManyMutationInput> = z.object({
@@ -222,9 +224,9 @@ export const BooksUpdateManyMutationInputSchema: z.ZodType<Prisma.BooksUpdateMan
   pages: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   publisher: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   publishYear: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
-  review: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  cover: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => EnumStatusFieldUpdateOperationsInputSchema) ]).optional(),
+  review: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  cover: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NullableEnumStatusFieldUpdateOperationsInputSchema) ]).optional().nullable(),
 }).strict();
 
 export const BooksUncheckedUpdateManyInputSchema: z.ZodType<Prisma.BooksUncheckedUpdateManyInput> = z.object({
@@ -235,9 +237,9 @@ export const BooksUncheckedUpdateManyInputSchema: z.ZodType<Prisma.BooksUnchecke
   pages: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
   publisher: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
   publishYear: z.union([ z.number().int(),z.lazy(() => IntFieldUpdateOperationsInputSchema) ]).optional(),
-  review: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  cover: z.union([ z.string(),z.lazy(() => StringFieldUpdateOperationsInputSchema) ]).optional(),
-  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => EnumStatusFieldUpdateOperationsInputSchema) ]).optional(),
+  review: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  cover: z.union([ z.string(),z.lazy(() => NullableStringFieldUpdateOperationsInputSchema) ]).optional().nullable(),
+  status: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NullableEnumStatusFieldUpdateOperationsInputSchema) ]).optional().nullable(),
 }).strict();
 
 export const IntFilterSchema: z.ZodType<Prisma.IntFilter> = z.object({
@@ -266,11 +268,31 @@ export const StringFilterSchema: z.ZodType<Prisma.StringFilter> = z.object({
   not: z.union([ z.string(),z.lazy(() => NestedStringFilterSchema) ]).optional(),
 }).strict();
 
-export const EnumStatusFilterSchema: z.ZodType<Prisma.EnumStatusFilter> = z.object({
-  equals: z.lazy(() => StatusSchema).optional(),
-  in: z.lazy(() => StatusSchema).array().optional(),
-  notIn: z.lazy(() => StatusSchema).array().optional(),
-  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusFilterSchema) ]).optional(),
+export const StringNullableFilterSchema: z.ZodType<Prisma.StringNullableFilter> = z.object({
+  equals: z.string().optional().nullable(),
+  in: z.string().array().optional().nullable(),
+  notIn: z.string().array().optional().nullable(),
+  lt: z.string().optional(),
+  lte: z.string().optional(),
+  gt: z.string().optional(),
+  gte: z.string().optional(),
+  contains: z.string().optional(),
+  startsWith: z.string().optional(),
+  endsWith: z.string().optional(),
+  mode: z.lazy(() => QueryModeSchema).optional(),
+  not: z.union([ z.string(),z.lazy(() => NestedStringNullableFilterSchema) ]).optional().nullable(),
+}).strict();
+
+export const EnumStatusNullableFilterSchema: z.ZodType<Prisma.EnumStatusNullableFilter> = z.object({
+  equals: z.lazy(() => StatusSchema).optional().nullable(),
+  in: z.lazy(() => StatusSchema).array().optional().nullable(),
+  notIn: z.lazy(() => StatusSchema).array().optional().nullable(),
+  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusNullableFilterSchema) ]).optional().nullable(),
+}).strict();
+
+export const SortOrderInputSchema: z.ZodType<Prisma.SortOrderInput> = z.object({
+  sort: z.lazy(() => SortOrderSchema),
+  nulls: z.lazy(() => NullsOrderSchema).optional()
 }).strict();
 
 export const BooksCountOrderByAggregateInputSchema: z.ZodType<Prisma.BooksCountOrderByAggregateInput> = z.object({
@@ -358,14 +380,32 @@ export const StringWithAggregatesFilterSchema: z.ZodType<Prisma.StringWithAggreg
   _max: z.lazy(() => NestedStringFilterSchema).optional()
 }).strict();
 
-export const EnumStatusWithAggregatesFilterSchema: z.ZodType<Prisma.EnumStatusWithAggregatesFilter> = z.object({
-  equals: z.lazy(() => StatusSchema).optional(),
-  in: z.lazy(() => StatusSchema).array().optional(),
-  notIn: z.lazy(() => StatusSchema).array().optional(),
-  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusWithAggregatesFilterSchema) ]).optional(),
-  _count: z.lazy(() => NestedIntFilterSchema).optional(),
-  _min: z.lazy(() => NestedEnumStatusFilterSchema).optional(),
-  _max: z.lazy(() => NestedEnumStatusFilterSchema).optional()
+export const StringNullableWithAggregatesFilterSchema: z.ZodType<Prisma.StringNullableWithAggregatesFilter> = z.object({
+  equals: z.string().optional().nullable(),
+  in: z.string().array().optional().nullable(),
+  notIn: z.string().array().optional().nullable(),
+  lt: z.string().optional(),
+  lte: z.string().optional(),
+  gt: z.string().optional(),
+  gte: z.string().optional(),
+  contains: z.string().optional(),
+  startsWith: z.string().optional(),
+  endsWith: z.string().optional(),
+  mode: z.lazy(() => QueryModeSchema).optional(),
+  not: z.union([ z.string(),z.lazy(() => NestedStringNullableWithAggregatesFilterSchema) ]).optional().nullable(),
+  _count: z.lazy(() => NestedIntNullableFilterSchema).optional(),
+  _min: z.lazy(() => NestedStringNullableFilterSchema).optional(),
+  _max: z.lazy(() => NestedStringNullableFilterSchema).optional()
+}).strict();
+
+export const EnumStatusNullableWithAggregatesFilterSchema: z.ZodType<Prisma.EnumStatusNullableWithAggregatesFilter> = z.object({
+  equals: z.lazy(() => StatusSchema).optional().nullable(),
+  in: z.lazy(() => StatusSchema).array().optional().nullable(),
+  notIn: z.lazy(() => StatusSchema).array().optional().nullable(),
+  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusNullableWithAggregatesFilterSchema) ]).optional().nullable(),
+  _count: z.lazy(() => NestedIntNullableFilterSchema).optional(),
+  _min: z.lazy(() => NestedEnumStatusNullableFilterSchema).optional(),
+  _max: z.lazy(() => NestedEnumStatusNullableFilterSchema).optional()
 }).strict();
 
 export const StringFieldUpdateOperationsInputSchema: z.ZodType<Prisma.StringFieldUpdateOperationsInput> = z.object({
@@ -380,8 +420,12 @@ export const IntFieldUpdateOperationsInputSchema: z.ZodType<Prisma.IntFieldUpdat
   divide: z.number().optional()
 }).strict();
 
-export const EnumStatusFieldUpdateOperationsInputSchema: z.ZodType<Prisma.EnumStatusFieldUpdateOperationsInput> = z.object({
-  set: z.lazy(() => StatusSchema).optional()
+export const NullableStringFieldUpdateOperationsInputSchema: z.ZodType<Prisma.NullableStringFieldUpdateOperationsInput> = z.object({
+  set: z.string().optional().nullable()
+}).strict();
+
+export const NullableEnumStatusFieldUpdateOperationsInputSchema: z.ZodType<Prisma.NullableEnumStatusFieldUpdateOperationsInput> = z.object({
+  set: z.lazy(() => StatusSchema).optional().nullable()
 }).strict();
 
 export const NestedIntFilterSchema: z.ZodType<Prisma.NestedIntFilter> = z.object({
@@ -409,11 +453,25 @@ export const NestedStringFilterSchema: z.ZodType<Prisma.NestedStringFilter> = z.
   not: z.union([ z.string(),z.lazy(() => NestedStringFilterSchema) ]).optional(),
 }).strict();
 
-export const NestedEnumStatusFilterSchema: z.ZodType<Prisma.NestedEnumStatusFilter> = z.object({
-  equals: z.lazy(() => StatusSchema).optional(),
-  in: z.lazy(() => StatusSchema).array().optional(),
-  notIn: z.lazy(() => StatusSchema).array().optional(),
-  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusFilterSchema) ]).optional(),
+export const NestedStringNullableFilterSchema: z.ZodType<Prisma.NestedStringNullableFilter> = z.object({
+  equals: z.string().optional().nullable(),
+  in: z.string().array().optional().nullable(),
+  notIn: z.string().array().optional().nullable(),
+  lt: z.string().optional(),
+  lte: z.string().optional(),
+  gt: z.string().optional(),
+  gte: z.string().optional(),
+  contains: z.string().optional(),
+  startsWith: z.string().optional(),
+  endsWith: z.string().optional(),
+  not: z.union([ z.string(),z.lazy(() => NestedStringNullableFilterSchema) ]).optional().nullable(),
+}).strict();
+
+export const NestedEnumStatusNullableFilterSchema: z.ZodType<Prisma.NestedEnumStatusNullableFilter> = z.object({
+  equals: z.lazy(() => StatusSchema).optional().nullable(),
+  in: z.lazy(() => StatusSchema).array().optional().nullable(),
+  notIn: z.lazy(() => StatusSchema).array().optional().nullable(),
+  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusNullableFilterSchema) ]).optional().nullable(),
 }).strict();
 
 export const NestedIntWithAggregatesFilterSchema: z.ZodType<Prisma.NestedIntWithAggregatesFilter> = z.object({
@@ -460,14 +518,42 @@ export const NestedStringWithAggregatesFilterSchema: z.ZodType<Prisma.NestedStri
   _max: z.lazy(() => NestedStringFilterSchema).optional()
 }).strict();
 
-export const NestedEnumStatusWithAggregatesFilterSchema: z.ZodType<Prisma.NestedEnumStatusWithAggregatesFilter> = z.object({
-  equals: z.lazy(() => StatusSchema).optional(),
-  in: z.lazy(() => StatusSchema).array().optional(),
-  notIn: z.lazy(() => StatusSchema).array().optional(),
-  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusWithAggregatesFilterSchema) ]).optional(),
-  _count: z.lazy(() => NestedIntFilterSchema).optional(),
-  _min: z.lazy(() => NestedEnumStatusFilterSchema).optional(),
-  _max: z.lazy(() => NestedEnumStatusFilterSchema).optional()
+export const NestedStringNullableWithAggregatesFilterSchema: z.ZodType<Prisma.NestedStringNullableWithAggregatesFilter> = z.object({
+  equals: z.string().optional().nullable(),
+  in: z.string().array().optional().nullable(),
+  notIn: z.string().array().optional().nullable(),
+  lt: z.string().optional(),
+  lte: z.string().optional(),
+  gt: z.string().optional(),
+  gte: z.string().optional(),
+  contains: z.string().optional(),
+  startsWith: z.string().optional(),
+  endsWith: z.string().optional(),
+  not: z.union([ z.string(),z.lazy(() => NestedStringNullableWithAggregatesFilterSchema) ]).optional().nullable(),
+  _count: z.lazy(() => NestedIntNullableFilterSchema).optional(),
+  _min: z.lazy(() => NestedStringNullableFilterSchema).optional(),
+  _max: z.lazy(() => NestedStringNullableFilterSchema).optional()
+}).strict();
+
+export const NestedIntNullableFilterSchema: z.ZodType<Prisma.NestedIntNullableFilter> = z.object({
+  equals: z.number().optional().nullable(),
+  in: z.number().array().optional().nullable(),
+  notIn: z.number().array().optional().nullable(),
+  lt: z.number().optional(),
+  lte: z.number().optional(),
+  gt: z.number().optional(),
+  gte: z.number().optional(),
+  not: z.union([ z.number(),z.lazy(() => NestedIntNullableFilterSchema) ]).optional().nullable(),
+}).strict();
+
+export const NestedEnumStatusNullableWithAggregatesFilterSchema: z.ZodType<Prisma.NestedEnumStatusNullableWithAggregatesFilter> = z.object({
+  equals: z.lazy(() => StatusSchema).optional().nullable(),
+  in: z.lazy(() => StatusSchema).array().optional().nullable(),
+  notIn: z.lazy(() => StatusSchema).array().optional().nullable(),
+  not: z.union([ z.lazy(() => StatusSchema),z.lazy(() => NestedEnumStatusNullableWithAggregatesFilterSchema) ]).optional().nullable(),
+  _count: z.lazy(() => NestedIntNullableFilterSchema).optional(),
+  _min: z.lazy(() => NestedEnumStatusNullableFilterSchema).optional(),
+  _max: z.lazy(() => NestedEnumStatusNullableFilterSchema).optional()
 }).strict();
 
 /////////////////////////////////////////

@@ -18,16 +18,16 @@ datasource db {
 }
 
 model Books {
-  bookId         Int    @id @default(sequence())
+  bookId         Int     @id @default(sequence())
   title          String
   authorName     String
   authorLastName String
   pages          Int
   publisher      String
   publishYear    Int
-  review         String
-  cover          String
-  status         Status @default(PENDING)
+  review         String?
+  cover          String? @default("/covers/default.jpeg")
+  status         Status? @default(PENDING)
 }
 
 enum Status {

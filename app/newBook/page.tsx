@@ -14,22 +14,32 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-const formSchema = z.object({
-  title: z.string(),
-  author: z.string(),
-  publisher: z.string(),
-  year: z.number(),
-  pages: z.number(),
-});
+import { BooksCreateInputSchema } from "@/prisma/generated/zod";
+import { actionAddBook } from "../actions/books";
+import { useRouter } from "next/navigation";
 
-type FormType = z.infer<typeof formSchema>;
+type FormType = z.infer<typeof BooksCreateInputSchema>;
 
 export default function Page() {
+  const router = useRouter(); // Obtiene el router de Next.js
+
   const form = useForm<FormType>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(BooksCreateInputSchema),
+    defaultValues: {
+      title: "",
+      authorLastName: "",
+      authorName: "",
+      publisher: "",
+      publishYear: 10,
+      pages: 10,
+    },
   });
-  function createNewBook() {
-    console.log("Create new book not implemented!");
+  async function createNewBook(formData: FormType) {
+    console.log(formData);
+    const book = await actionAddBook(formData);
+    console.log("Book added!");
+    console.log(book);
+    router.push(`/books/${book.bookId}`);
   }
 
   return (
@@ -57,12 +67,31 @@ export default function Page() {
               />
               <FormField
                 control={form.control}
-                name="author"
+                name="authorLastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Autor</FormLabel>
+                    <FormLabel>Apellido del Autor</FormLabel>
                     <FormControl>
-                      <Input placeholder="Autor..." {...field} />
+                      <Input
+                        placeholder="Apellido del Autor..."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="authorName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Nombre del Autor</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Nombre del Autor..."
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -83,7 +112,7 @@ export default function Page() {
               />
               <FormField
                 control={form.control}
-                name="year"
+                name="publishYear"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Año de publicación</FormLabel>
@@ -91,6 +120,9 @@ export default function Page() {
                       <Input
                         placeholder="Año de publicación..."
                         {...field}
+                        onChange={(e) =>
+                          field.onChange(parseInt(e.target.value))
+                        }
                       />
                     </FormControl>
                     <FormMessage />
@@ -104,7 +136,13 @@ export default function Page() {
                   <FormItem>
                     <FormLabel>Número de páginas</FormLabel>
                     <FormControl>
-                      <Input placeholder="Páginas..." {...field} />
+                      <Input
+                        placeholder="Número de páginas..."
+                        {...field}
+                        onChange={(e) =>
+                          field.onChange(parseInt(e.target.value))
+                        }
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

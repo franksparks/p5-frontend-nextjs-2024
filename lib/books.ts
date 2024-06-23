@@ -39,6 +39,6 @@ export async function updateBookReview(bookId: number, review: string) {
 export async function updateBookStatus(bookId: number, status: string) {
   return await prisma.books.update({
     where: { bookId },
-    data: { Enum },
+    data: { status },
   });
 }
