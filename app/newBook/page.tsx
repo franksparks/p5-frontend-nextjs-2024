@@ -8,7 +8,6 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { BooksCreateInputSchema } from "@/prisma/generated/zod";
@@ -42,8 +41,6 @@ export default function Page() {
     if (fileList && fileList.length > 0) {
       setSelectedCover(fileList[0]);
       const coverRoute = "/covers/" + fileList[0].name.split(" ").join("");
-
-      form.setValue("cover", coverRoute);
     }
   }
   async function createNewBook(formData: FormType) {
@@ -71,7 +68,6 @@ export default function Page() {
                     <FormControl>
                       <Input placeholder="Título..." {...field} />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -87,7 +83,6 @@ export default function Page() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -103,7 +98,6 @@ export default function Page() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -116,7 +110,6 @@ export default function Page() {
                     <FormControl>
                       <Input placeholder="Editorial..." {...field} />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -135,7 +128,6 @@ export default function Page() {
                         }
                       />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -154,7 +146,6 @@ export default function Page() {
                         }
                       />
                     </FormControl>
-                    <FormMessage />
                   </FormItem>
                 )}
               />
@@ -177,7 +168,6 @@ export default function Page() {
                     height={50}
                   />
                 )}
-                <FormMessage />
               </FormItem>
 
               <div className="mt-4 flex flex-col items-center">

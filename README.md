@@ -24,8 +24,10 @@ Los libros pueden tener uno de los siguientes estados:
 
 Una vez arrancada la aplicación, veremos una serie de libros en la página principal, son los libros en nuestra biblioteca personal:
 
-- Usuarios sin registrar pueden ver la colección y también el detalle de los libros.
-- Para añadir libros, editar su estado o su valoración, necesitaremos iniciar sesión.
+- Se pueden ver los libros de la colección.
+- Se puede editar el estado de lectura de los libros.
+- Se puede editar la valoración de los libros con estado "LEÍDO".
+- Se pueden añadir libros.
 
 #### Casos especiales
 
@@ -34,17 +36,10 @@ Una vez arrancada la aplicación, veremos una serie de libros en la página prin
 
 ---
 
-### Pendiente a fecha del 13/6:
+### Pendiente:
 
-- Terminar el formulario para introducir libros.
-
-  - Mejorar el formulario para poder añadir la imagen de portada.
-
-- Implementar login + redirecciones.
-
-  - Implementar controles para permitir aplicar cambios o introducir nuevos libros solo al usuario autenticado.
-
-- Añadir filtros por estado en la página principal.
+- Almacenar la imagen de portada en el servidor
+- Implementar redirecciones e impedir realizar cambios o altas si el usuario no está registrado.
 
 ---
 
