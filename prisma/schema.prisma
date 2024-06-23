@@ -8,12 +8,16 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator zod {
+  provider = "zod-prisma-types"
+}
+
 datasource db {
   provider = "cockroachdb"
   url      = env("DATABASE_URL")
 }
 
-model Book {
+model Books {
   bookId         Int    @id @default(sequence())
   title          String
   authorName     String
@@ -23,7 +27,7 @@ model Book {
   publishYear    Int
   review         String
   cover          String
-  status         Status
+  status         Status @default(PENDING)
 }
 
 enum Status {

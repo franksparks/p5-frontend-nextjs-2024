@@ -1,11 +1,17 @@
 "use server";
 import {
+  addBook,
   getBooks,
   getOneBook,
   updateBookReview,
   updateBookStatus,
 } from "@/lib/books";
 import { revalidatePath } from "next/cache";
+
+export async function actionAddBook(data: FormData) {
+  const book = await addBook(data);
+  return book;
+}
 
 export async function actionGetBooks() {
   const books = await getBooks();

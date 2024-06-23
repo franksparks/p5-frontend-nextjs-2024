@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   // Books
-  const bookOne = await prisma.book.create({
+  const bookOne = await prisma.books.create({
     data: {
       title: "Tan poca vida",
       authorName: "Hanya ",
@@ -17,7 +17,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookTwo = await prisma.book.create({
+  const bookTwo = await prisma.books.create({
     data: {
       title: "La casa de hojas",
       authorName: "Mark ",
@@ -30,7 +30,7 @@ async function main() {
       status: "PENDING",
     },
   });
-  const bookThree = await prisma.book.create({
+  const bookThree = await prisma.books.create({
     data: {
       title: "Don Quijote de la Mancha",
       authorName: "Miguel",
@@ -43,7 +43,7 @@ async function main() {
       status: "PENDING",
     },
   });
-  const bookFour = await prisma.book.create({
+  const bookFour = await prisma.books.create({
     data: {
       title: "El color de la magia",
       authorName: "Terry",
@@ -56,7 +56,7 @@ async function main() {
       status: "READING",
     },
   });
-  const bookFive = await prisma.book.create({
+  const bookFive = await prisma.books.create({
     data: {
       title: "Fundación",
       authorName: "Isaac",
@@ -69,7 +69,7 @@ async function main() {
       status: "READING",
     },
   });
-  const bookSix = await prisma.book.create({
+  const bookSix = await prisma.books.create({
     data: {
       title: "La trilogía de Nueva York",
       authorName: "Paul",
@@ -82,7 +82,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookSeven = await prisma.book.create({
+  const bookSeven = await prisma.books.create({
     data: {
       title: "Ubik",
       authorName: "Philip",
@@ -95,7 +95,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookEight = await prisma.book.create({
+  const bookEight = await prisma.books.create({
     data: {
       title: "Lavinia",
       authorName: "Ursula",
@@ -108,7 +108,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookNine = await prisma.book.create({
+  const bookNine = await prisma.books.create({
     data: {
       title: "El hobbit",
       authorName: "John Ronald Reuel",
@@ -121,7 +121,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookTen = await prisma.book.create({
+  const bookTen = await prisma.books.create({
     data: {
       title: "La Guerra de las salamandras",
       authorName: "Karel",
@@ -134,7 +134,7 @@ async function main() {
       status: "READ",
     },
   });
-  const bookEleven = await prisma.book.create({
+  const bookEleven = await prisma.books.create({
     data: {
       title: "Error Humano",
       authorName: "Chuck",
@@ -147,7 +147,7 @@ async function main() {
       status: "READING",
     },
   });
-  const bookTwelve = await prisma.book.create({
+  const bookTwelve = await prisma.books.create({
     data: {
       title: "Atlantis found",
       authorName: "Clive",
