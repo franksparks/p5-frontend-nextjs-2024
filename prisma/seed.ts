@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   // Books
-  const bookOne = await prisma.book.create({
+  const bookOne = await prisma.books.create({
     data: {
       title: "Tan poca vida",
       authorName: "Hanya ",
@@ -12,12 +12,11 @@ async function main() {
       pages: 1008,
       publisher: "Lumen",
       publishYear: 2015,
-      review: "",
       cover: "/covers/tanPocaVida.jpeg",
       status: "READ",
     },
   });
-  const bookTwo = await prisma.book.create({
+  const bookTwo = await prisma.books.create({
     data: {
       title: "La casa de hojas",
       authorName: "Mark ",
@@ -25,12 +24,11 @@ async function main() {
       pages: 736,
       publisher: "Pálido fuego",
       publishYear: 2013,
-      review: "",
       cover: "/covers/laCasaDeHojas.jpeg",
       status: "PENDING",
     },
   });
-  const bookThree = await prisma.book.create({
+  const bookThree = await prisma.books.create({
     data: {
       title: "Don Quijote de la Mancha",
       authorName: "Miguel",
@@ -43,7 +41,7 @@ async function main() {
       status: "PENDING",
     },
   });
-  const bookFour = await prisma.book.create({
+  const bookFour = await prisma.books.create({
     data: {
       title: "El color de la magia",
       authorName: "Terry",
@@ -51,12 +49,11 @@ async function main() {
       pages: 330,
       publisher: "De Bolsillo",
       publishYear: 1983,
-      review: "",
       cover: "/covers/elColorDeLaMagia.jpeg",
       status: "READING",
     },
   });
-  const bookFive = await prisma.book.create({
+  const bookFive = await prisma.books.create({
     data: {
       title: "Fundación",
       authorName: "Isaac",
@@ -64,12 +61,11 @@ async function main() {
       pages: 420,
       publisher: "De Bolsillo",
       publishYear: 1951,
-      review: "",
       cover: "/covers/fundacion.jpeg",
       status: "READING",
     },
   });
-  const bookSix = await prisma.book.create({
+  const bookSix = await prisma.books.create({
     data: {
       title: "La trilogía de Nueva York",
       authorName: "Paul",
@@ -77,12 +73,11 @@ async function main() {
       pages: 280,
       publisher: "Anagrama",
       publishYear: 1987,
-      review: "",
       cover: "/covers/laTrilogiaDeNuevaYork.jpeg",
       status: "READ",
     },
   });
-  const bookSeven = await prisma.book.create({
+  const bookSeven = await prisma.books.create({
     data: {
       title: "Ubik",
       authorName: "Philip",
@@ -90,12 +85,11 @@ async function main() {
       pages: 310,
       publisher: "Minotauro",
       publishYear: 1969,
-      review: "",
       cover: "/covers/ubik.jpeg",
       status: "READ",
     },
   });
-  const bookEight = await prisma.book.create({
+  const bookEight = await prisma.books.create({
     data: {
       title: "Lavinia",
       authorName: "Ursula",
@@ -103,12 +97,11 @@ async function main() {
       pages: 333,
       publisher: "Minotauro",
       publishYear: 2008,
-      review: "",
       cover: "/covers/lavinia.jpeg",
       status: "READ",
     },
   });
-  const bookNine = await prisma.book.create({
+  const bookNine = await prisma.books.create({
     data: {
       title: "El hobbit",
       authorName: "John Ronald Reuel",
@@ -116,12 +109,11 @@ async function main() {
       pages: 288,
       publisher: "Booket",
       publishYear: 1937,
-      review: "",
       cover: "/covers/hobbit.jpeg",
       status: "READ",
     },
   });
-  const bookTen = await prisma.book.create({
+  const bookTen = await prisma.books.create({
     data: {
       title: "La Guerra de las salamandras",
       authorName: "Karel",
@@ -129,12 +121,11 @@ async function main() {
       pages: 336,
       publisher: "Libros del Zorro Rojo",
       publishYear: 1936,
-      review: "",
       cover: "/covers/laGuerraDeLasSalamandras.jpeg",
       status: "READ",
     },
   });
-  const bookEleven = await prisma.book.create({
+  const bookEleven = await prisma.books.create({
     data: {
       title: "Error Humano",
       authorName: "Chuck",
@@ -142,12 +133,11 @@ async function main() {
       pages: 180,
       publisher: "De Bolsillo",
       publishYear: 2005,
-      review: "",
       cover: "/covers/errorHumano.jpeg",
       status: "READING",
     },
   });
-  const bookTwelve = await prisma.book.create({
+  const bookTwelve = await prisma.books.create({
     data: {
       title: "Atlantis found",
       authorName: "Clive",
@@ -155,9 +145,7 @@ async function main() {
       pages: 530,
       publisher: "Berkley Books",
       publishYear: 2000,
-      review: "",
       cover: "/covers/atlantisFound.jpeg",
-      status: "PENDING",
     },
   });
 

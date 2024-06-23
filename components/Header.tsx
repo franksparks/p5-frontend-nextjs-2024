@@ -11,7 +11,7 @@ export default function Header() {
       </Link>
       <div className="flex flex-row gap-5">
         <Button className=" bg-blue-600 ">
-          <Link href="/new" className="text-white">
+          <Link href="/newBook" className="text-white">
             Add a book
           </Link>
         </Button>

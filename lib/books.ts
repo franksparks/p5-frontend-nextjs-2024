@@ -14,26 +14,30 @@ export type Book = {
 };
 
 export async function getBooks() {
-  return await prisma.book.findMany({
+  return await prisma.books.findMany({
     orderBy: { bookId: "asc" },
   });
 }
 
 export async function getOneBook(bookId: number) {
-  return await prisma.book.findUniqueOrThrow({
+  return await prisma.books.findUniqueOrThrow({
     where: { bookId },
   });
 }
 
+export async function addBook(data: any) {
+  return await prisma.books.create({ data });
+}
+
 export async function updateBookReview(bookId: number, review: string) {
-  return await prisma.book.update({
+  return await prisma.books.update({
     where: { bookId },
     data: { review },
   });
 }
 
 export async function updateBookStatus(bookId: number, status: string) {
-  return await prisma.book.update({
+  return await prisma.books.update({
     where: { bookId },
     data: { status },
   });
