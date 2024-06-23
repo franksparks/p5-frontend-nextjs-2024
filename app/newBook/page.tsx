@@ -1,6 +1,8 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+
 import {
   Form,
   FormControl,
@@ -9,19 +11,20 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+
 import { Input } from "@/components/ui/input";
+import { BooksCreateInputSchema } from "@/prisma/generated/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { BooksCreateInputSchema } from "@/prisma/generated/zod";
 import { actionAddBook } from "../actions/books";
-import { useRouter } from "next/navigation";
 
 type FormType = z.infer<typeof BooksCreateInputSchema>;
 
 export default function Page() {
-  const router = useRouter(); // Obtiene el router de Next.js
+  const router = useRouter();
 
   const form = useForm<FormType>({
     resolver: zodResolver(BooksCreateInputSchema),
@@ -30,15 +33,24 @@ export default function Page() {
       authorLastName: "",
       authorName: "",
       publisher: "",
-      publishYear: 10,
-      pages: 10,
+      publishYear: 0,
+      pages: 0,
     },
   });
+  const [selectedCover, setSelectedCover] = useState<File | null>(null);
+
+  function handleCoverChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const fileList = event.target.files;
+    if (fileList && fileList.length > 0) {
+      setSelectedCover(fileList[0]);
+      const coverRoute = "/covers/" + fileList[0].name.split(" ").join("");
+
+      form.setValue("cover", coverRoute);
+    }
+  }
   async function createNewBook(formData: FormType) {
-    console.log(formData);
     const book = await actionAddBook(formData);
-    console.log("Book added!");
-    console.log(book);
+    //Aquí almacenaría la portada en el servidor
     router.push(`/books/${book.bookId}`);
   }
 
@@ -148,6 +160,27 @@ export default function Page() {
                   </FormItem>
                 )}
               />
+              <FormItem>
+                <FormLabel>Portada del libro</FormLabel>
+                <FormControl>
+                  <input
+                    id="cover"
+                    type="file"
+                    name="cover"
+                    onChange={handleCoverChange}
+                  />
+                </FormControl>
+                {selectedCover && (
+                  <Image
+                    className="mt-2"
+                    src={URL.createObjectURL(selectedCover)}
+                    alt="Cover Preview"
+                    width={50}
+                    height={50}
+                  />
+                )}
+                <FormMessage />
+              </FormItem>
 
               <div className="mt-4 flex flex-col items-center">
                 <Button>Añadir</Button>
