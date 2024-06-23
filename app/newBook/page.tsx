@@ -1,8 +1,7 @@
 "use client";
+import { actionAddBook } from "@/app/actions/books";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import Image from "next/image";
-
 import {
   Form,
   FormControl,
@@ -11,15 +10,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
 import { Input } from "@/components/ui/input";
 import { BooksCreateInputSchema } from "@/prisma/generated/zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { actionAddBook } from "../actions/books";
 
 type FormType = z.infer<typeof BooksCreateInputSchema>;
 
@@ -55,7 +53,7 @@ export default function Page() {
   }
 
   return (
-    <main className="flex flex-col items-center p-8">
+    <main className="flex flex-col items-center p-4">
       <h1>Añade un libro</h1>
       <Card className="w-96">
         <CardContent>
