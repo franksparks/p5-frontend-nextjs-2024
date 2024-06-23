@@ -1,11 +1,16 @@
-type LayoutProps = {
-  children: React.ReactNode;
-};
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
-export default async function Layout({ children }: LayoutProps) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <div>
-      <div>{children}</div>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <div className="flex-1 flex flex-col">{children}</div>
+      <Footer />
     </div>
   );
 }
