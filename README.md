@@ -38,7 +38,6 @@ Una vez arrancada la aplicación, veremos una serie de libros en la página prin
 
 ### Pendiente:
 
-- Almacenar la imagen de portada en el servidor
 - Implementar redirecciones e impedir realizar cambios o altas si el usuario no está registrado.
 
 ---
