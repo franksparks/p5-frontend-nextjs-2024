@@ -8,9 +8,9 @@ export type Book = {
   pages: number;
   publisher: string;
   publishYear: number;
-  review: string;
-  cover: string;
-  status: string;
+  review: string | null;
+  cover: string | null;
+  status: string | null;
 };
 
 export async function getBooks() {
