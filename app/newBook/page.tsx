@@ -1,5 +1,4 @@
 "use client";
-import { actionAddBook } from "@/app/actions/books";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -40,12 +39,32 @@ export default function Page() {
     const fileList = event.target.files;
     if (fileList && fileList.length > 0) {
       setSelectedCover(fileList[0]);
-      const coverRoute = "/covers/" + fileList[0].name.split(" ").join("");
     }
   }
   async function createNewBook(formData: FormType) {
-    const book = await actionAddBook(formData);
-    //Aquí almacenaría la portada en el servidor
+    const formDataToSend = new FormData();
+
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        formDataToSend.append(key, value.toString()); // Convertir a string si es necesario
+      }
+    });
+
+    if (selectedCover) {
+      formDataToSend.append("cover", selectedCover);
+    }
+
+    const response = await fetch("/api/books/add", {
+      method: "POST",
+      body: formDataToSend,
+    });
+
+    if (!response.ok) {
+      console.log(response);
+      throw new Error("Failed to add book");
+    }
+
+    const book = await response.json();
     router.push(`/books/${book.bookId}`);
   }
 
