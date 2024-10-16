@@ -36,10 +36,12 @@ export default async function Page({ params }: PageProps) {
       <div className="w-1/3 flex flex-col items-center">
         <Image
           className="shadow-xl"
-          src={book.cover}
+          src={book.cover || "/public/covers/default.jpeg"}
           width={250}
           height={250}
-          alt={`Portada del libro: "${book.cover}"`}
+          alt={`Portada del libro: "${
+            book.cover || "/public/covers/default.jpeg"
+          }"`}
         />
         <Button className="ml-10 mt-10">
           <Link href="/books" className="text-white ">

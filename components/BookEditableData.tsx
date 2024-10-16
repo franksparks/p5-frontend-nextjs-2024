@@ -26,7 +26,7 @@ export default function BookEditableData({ book }: bookCardProps) {
   };
 
   const handleSaveReview = () => {
-    actionUpdateReview(book.bookId, review);
+    actionUpdateReview(book.bookId, review || "");
     setMessage("Se ha actualizado la reseña del libro.");
     setEditionMode(false);
   };
@@ -39,7 +39,7 @@ export default function BookEditableData({ book }: bookCardProps) {
   };
 
   const handleStatusEdit = () => {
-    actionUpdateStatus(book.bookId, status);
+    actionUpdateStatus(book.bookId, status || "PENDING");
 
     setMessage("Se ha actualizado el estado de lectura.");
   };
@@ -96,7 +96,7 @@ export default function BookEditableData({ book }: bookCardProps) {
             <select
               className="item w-32 min-h-10 mr-4"
               name="statuses"
-              value={status}
+              value={status || "PENDING"}
               onChange={handleStatusChange}
             >
               <option value="PENDING">Pendiente</option>
@@ -152,7 +152,7 @@ export default function BookEditableData({ book }: bookCardProps) {
                   readOnly
                   placeholder="Escribe aquí tu reseña"
                   className="w-64 min-h-24"
-                  value={review}
+                  value={review || ""}
                   onChange={handleTextareaChange}
                 />
                 <Button
@@ -173,7 +173,7 @@ export default function BookEditableData({ book }: bookCardProps) {
                 <Textarea
                   placeholder="Escribe aquí tu reseña"
                   className="w-64 min-h-24"
-                  value={review}
+                  value={review || ""}
                   onChange={handleTextareaChange}
                 />
 

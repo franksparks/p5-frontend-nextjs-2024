@@ -1,4 +1,5 @@
 import { prisma } from "@/db/db";
+import { Status } from "@prisma/client"; // Importa el tipo Status generado por Prisma
 
 export type Book = {
   bookId: number;
@@ -37,8 +38,10 @@ export async function updateBookReview(bookId: number, review: string) {
 }
 
 export async function updateBookStatus(bookId: number, status: string) {
+  const validStatus: Status = status as Status;
+
   return await prisma.books.update({
     where: { bookId },
-    data: { status },
+    data: { status: validStatus },
   });
 }
